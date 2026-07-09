@@ -14,9 +14,6 @@
 <style>
   :root {
     --olive: #7d7e5e;
-    --olive-dark: #6c6d4f;
-    --cream: #f3efe4;
-    --text-dark: #3f3f2e;
     --text-cream: #f3efe4;
     --line: rgba(243,239,228,0.35);
   }
@@ -24,7 +21,8 @@
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    background: var(--olive);
+    background: var(--olive) url('assets/textura-olivo.jpg');
+    background-size: 900px;
     color: var(--text-cream);
     font-family: 'Cormorant Garamond', serif;
     font-size: 18px;
@@ -33,35 +31,41 @@
   .wrap {
     max-width: 480px;
     margin: 0 auto;
+    overflow: hidden;
   }
   .section {
     padding: 56px 32px;
     text-align: center;
+    position: relative;
   }
-  .section-alt {
-    background: var(--olive-dark);
+  .section-cream {
+    background: #f3efe4 url('assets/textura-crema.jpg');
+    background-size: 900px;
+    color: #4a4a38;
   }
-  h1, h2, h3 {
-    font-weight: 400;
-    margin: 0;
-  }
+  .section-cream .line { background: rgba(74,74,56,0.25); }
+  h1, h2, h3 { font-weight: 400; margin: 0; }
   .eyebrow {
     font-size: 15px;
     letter-spacing: 0.08em;
     font-style: italic;
     margin-bottom: 6px;
   }
-  .script {
-    font-family: 'Parisienne', cursive;
-    font-size: 56px;
-    line-height: 1.1;
-    margin: 8px 0;
+  .floral-corner {
+    width: 130px;
+    display: block;
+    margin: 0 auto 6px;
+    opacity: 0.9;
   }
-  .display {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 34px;
-    margin: 0 0 24px;
+  .franja-floral {
+    width: 100%;
+    display: block;
+  }
+  img.asset {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
   .date {
     letter-spacing: 0.15em;
@@ -83,23 +87,12 @@
     background: var(--line);
     margin: 28px auto;
   }
-  .names {
-    font-size: 16px;
-    margin: 4px 0;
-  }
-  .names-group {
-    margin-bottom: 18px;
-  }
+  .names { font-size: 16px; margin: 4px 0; }
+  .names-group { margin-bottom: 18px; }
 
   /* Player */
-  #player {
-    padding: 40px 32px 48px;
-  }
-  #player p {
-    font-style: italic;
-    font-size: 17px;
-    margin: 0 0 20px;
-  }
+  #player { padding: 30px 32px 48px; }
+  #player p { font-style: italic; font-size: 17px; margin: 0 0 20px; }
   #seekbar {
     width: 100%;
     max-width: 300px;
@@ -112,45 +105,24 @@
   }
   #seekbar::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--text-cream);
-    cursor: pointer;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--text-cream); cursor: pointer;
   }
   #seekbar::-moz-range-thumb {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--text-cream);
-    border: none;
-    cursor: pointer;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--text-cream); border: none; cursor: pointer;
   }
   .controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    margin-top: 18px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 24px; margin-top: 18px;
   }
-  .controls button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--text-cream);
-    padding: 0;
-  }
+  .controls button { background: none; border: none; cursor: pointer; color: var(--text-cream); padding: 0; }
   #playBtn {
-    border: 1px solid var(--text-cream);
-    border-radius: 50%;
-    width: 42px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: 1px solid var(--text-cream); border-radius: 50%;
+    width: 42px; height: 42px;
+    display: flex; align-items: center; justify-content: center;
   }
 
-  /* Ubicación button */
   .btn {
     display: inline-block;
     margin-top: 20px;
@@ -162,105 +134,32 @@
     font-size: 14px;
     letter-spacing: 0.05em;
   }
+  .section-cream .btn { border-color: #4a4a38; color: #4a4a38; }
 
   /* Countdown */
-  .countdown {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-    margin-top: 24px;
-  }
-  .countdown div {
-    text-align: center;
-  }
-  .countdown span {
-    display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: 30px;
-  }
-  .countdown small {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    opacity: 0.75;
-  }
-
-  /* Itinerario */
-  .itinerary-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px 12px;
-    margin-top: 32px;
-  }
-  .itinerary-grid .item svg {
-    width: 26px;
-    height: 26px;
-    margin-bottom: 10px;
-  }
-  .itinerary-grid .item p {
-    margin: 0;
-    font-size: 14px;
-  }
-  .itinerary-grid .item .time {
-    font-size: 13px;
-    opacity: 0.8;
-  }
-
-  /* Dress code */
-  .dress-role {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 22px;
-    margin: 24px 0 6px;
-  }
-  .swatches {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-  }
-  .swatch {
-    width: 34px;
-    height: 46px;
-    border-radius: 2px;
-    border: 1px solid var(--line);
-  }
+  .countdown { display: flex; justify-content: center; gap: 18px; margin-top: 20px; }
+  .countdown div { text-align: center; }
+  .countdown span { display: block; font-family: 'Playfair Display', serif; font-size: 30px; }
+  .countdown small { font-size: 11px; letter-spacing: 0.1em; opacity: 0.75; }
 
   /* RSVP */
-  .rsvp-note {
-    font-size: 15px;
-    margin-top: 12px;
-    opacity: 0.9;
-  }
+  .rsvp-note { font-size: 15px; margin-top: 12px; opacity: 0.9; }
 
   /* List */
-  .info-list {
-    text-align: left;
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
-  }
-  .info-list li {
-    font-size: 15px;
-    padding: 10px 0;
-    border-top: 1px solid var(--line);
-  }
-  .info-list li:last-child {
-    border-bottom: 1px solid var(--line);
-  }
+  .info-list { text-align: left; margin-top: 24px; padding: 0; list-style: none; }
+  .info-list li { font-size: 15px; padding: 10px 0; border-top: 1px solid rgba(74,74,56,0.2); }
+  .info-list li:last-child { border-bottom: 1px solid rgba(74,74,56,0.2); }
 
-  .small-caps {
-    font-size: 13px;
-    letter-spacing: 0.1em;
-  }
+  .script-fallback { font-family: 'Parisienne', cursive; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <div class="section">
+    <img class="floral-corner" src="assets/floral-corner.png" alt="">
     <p class="eyebrow">Te invitamos<br>a nuestra boda</p>
-    <p class="script">Mile &amp; Javi</p>
+    <img class="asset" style="width:220px; margin-top:6px;" src="assets/monograma-mj.png" alt="Mile &amp; Javi">
     <img class="photo" src="pareja.jpg" alt="Mile y Javi" onerror="this.style.display='none'">
     <p class="date">12 · 09 · 26</p>
   </div>
@@ -306,8 +205,8 @@
     <audio id="audio" src="song.mp3"></audio>
   </div>
 
-  <div class="section section-alt">
-    <p class="script" style="font-size:38px;">Celebra<br>nos casamos</p>
+  <div class="section">
+    <p class="script-fallback" style="font-size:38px;">Celebra<br>nos casamos</p>
     <div class="divider"></div>
     <p style="font-size:16px;">Ceremonia &amp; recepción</p>
     <p style="font-size:15px; opacity:0.85;">Hacienda Arkadia, Chía</p>
@@ -315,8 +214,7 @@
   </div>
 
   <div class="section">
-    <p class="display" style="margin-bottom:6px;">prepárate!</p>
-    <p class="small-caps">Nos vemos dentro de</p>
+    <img class="asset" style="max-width:340px;" src="assets/preparate-titulo.png" alt="Prepárate! Nos vemos dentro de">
     <div class="countdown" id="countdown">
       <div><span id="cd-days">00</span><small>días</small></div>
       <div><span id="cd-hours">00</span><small>horas</small></div>
@@ -325,71 +223,31 @@
     </div>
   </div>
 
-  <div class="section section-alt">
-    <p class="display">Itinerario</p>
-    <div class="itinerary-grid">
-      <div class="item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13l2-5a2 2 0 012-1h10a2 2 0 012 1l2 5"/><rect x="2" y="13" width="20" height="5" rx="1"/><circle cx="7" cy="18" r="1.3"/><circle cx="17" cy="18" r="1.3"/></svg>
-        <p>Llegada</p><p class="time">3:30pm</p>
-      </div>
-      <div class="item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M8 8h8"/></svg>
-        <p>Ceremonia</p><p class="time">3:30pm</p>
-      </div>
-      <div class="item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M7 3h10l-1 7a4 4 0 01-8 0z"/><path d="M12 14v7M9 21h6"/></svg>
-        <p>Cóctel</p><p class="time">4:30pm</p>
-      </div>
-      <div class="item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M8 8l8 8M8 12h8"/></svg>
-        <p>Cena</p><p class="time">6:30pm</p>
-      </div>
-      <div class="item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="6" r="3"/><path d="M12 9v12M6 21h12"/></svg>
-        <p>Celebración</p><p class="time">8:30pm</p>
-      </div>
-      <div class="item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
-        <p>Salida</p><p class="time">12:00am</p>
-      </div>
-    </div>
+  <div class="section">
+    <img class="asset" src="assets/itinerario.png" alt="Itinerario">
+  </div>
+
+  <div class="section section-cream">
+    <img class="asset" src="assets/dresscode-colores.png" alt="Dress code y colores reservados">
   </div>
 
   <div class="section">
-    <p class="display">Dress code</p>
-    <p style="font-size:15px;">Nos encantará celebrar este día rodeados de mucho color y elegancia.</p>
-    <p class="dress-role">Hombres</p>
-    <p style="font-size:15px;">Traje negro &amp; camisa blanca<br>Corbatín o corbata negra</p>
-    <p class="dress-role">Mujeres</p>
-    <p style="font-size:15px;">Vestido de gala largo en colores vibrantes</p>
-
-    <p class="script" style="font-size:30px; margin-top:36px;">Colores reservados</p>
-    <div class="swatches">
-      <div class="swatch" style="background:#3f4a2e;"></div>
-      <div class="swatch" style="background:#c98fa0;"></div>
-      <div class="swatch" style="background:#c6a15b;"></div>
-      <div class="swatch" style="background:#b9bdb6;"></div>
-      <div class="swatch" style="background:#f3efe4;"></div>
-    </div>
-    <p style="font-size:14px; margin-top:14px; opacity:0.85;">Verde, rosa, dorado, plateado y blanco</p>
-  </div>
-
-  <div class="section section-alt">
-    <p class="display">R S V P</p>
+    <p class="script-fallback" style="font-size:36px;">R S V P</p>
     <p class="rsvp-note">Esperamos poder contar con tu presencia, por favor,<br>confirmar asistencia hasta el 1 de agosto del 2026.</p>
     <a class="btn" href="#" target="_blank" rel="noopener">Confirma en el link enviado a WhatsApp</a>
   </div>
 
   <div class="section">
-    <p class="script" style="font-size:38px;">Regalos</p>
-    <p style="font-size:15px;">Lo más importante para nosotros es compartir este día con
+    <img class="asset" style="max-width:260px;" src="assets/regalos-titulo.png" alt="Regalos">
+    <p style="font-size:15px; margin-top:16px;">Lo más importante para nosotros es compartir este día con
     ustedes. Como regalo, hemos elegido una lluvia de sobres
     para acompañarnos en el inicio de esta nueva etapa.</p>
+    <img class="asset" style="width:100px; margin-top:20px; opacity:0.9;" src="assets/sobre-decorativo.png" alt="">
   </div>
 
-  <div class="section section-alt" style="text-align:left;">
-    <p class="script" style="text-align:center; font-size:32px;">Lo que necesitas saber…</p>
-    <p style="font-size:14px; text-align:center; opacity:0.85; margin-top:-6px;">Queremos que disfruten este día tanto como nosotros. Aquí encontrarán algunos detalles importantes para que todo transcurra de la mejor manera.</p>
+  <div class="section section-cream" style="text-align:left;">
+    <img class="asset" style="max-width:280px; margin:0 auto 8px;" src="assets/necesitas-saber-titulo.png" alt="Lo que necesitas saber">
+    <p style="font-size:14px; text-align:center; opacity:0.85;">Queremos que disfruten este día tanto como nosotros. Aquí encontrarán algunos detalles importantes para que todo transcurra de la mejor manera.</p>
     <ul class="info-list">
       <li>La ceremonia comenzará puntualmente a las 3:30 p. m.. Recomendamos llegar con anticipación, ya que una vez iniciada no será posible el ingreso.</li>
       <li>El lugar cuenta con parqueadero para mayor comodidad.</li>
@@ -404,7 +262,8 @@
   </div>
 
   <div class="section">
-    <p class="script" style="font-size:44px;">Gracias</p>
+    <img class="franja-floral" src="assets/franja-floral.png" alt="" style="margin-bottom:20px; opacity:0.9;">
+    <p class="script-fallback" style="font-size:44px;">Gracias</p>
     <p style="font-size:15px;">por ser parte de nuestra historia.<br>No vemos la hora de celebrar contigo.</p>
   </div>
 
@@ -449,7 +308,7 @@
     audio.currentTime = audio.duration || 0;
   });
 
-  // Countdown to the wedding: 12 septiembre 2026, 3:30pm
+  // Countdown a la boda: 12 septiembre 2026, 3:30pm
   const weddingDate = new Date('2026-09-12T15:30:00');
   function updateCountdown() {
     const now = new Date();
