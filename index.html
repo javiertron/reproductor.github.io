@@ -3,110 +3,411 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nuestra invitación</title>
-<meta name="description" content="Invitación con música de fondo">
-<meta property="og:title" content="Nuestra invitación">
-<meta property="og:description" content="Dale play a nuestra canción">
+<title>Mile &amp; Javi — Nos casamos</title>
+<meta name="description" content="Te invitamos a nuestra boda, 12.09.26">
+<meta property="og:title" content="Mile &amp; Javi — Nos casamos">
+<meta property="og:description" content="Te invitamos a nuestra boda, 12.09.26">
 <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Parisienne&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  html, body {
+  :root {
+    --olive: #7d7e5e;
+    --olive-dark: #6c6d4f;
+    --cream: #f3efe4;
+    --text-dark: #3f3f2e;
+    --text-cream: #f3efe4;
+    --line: rgba(243,239,228,0.35);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
     margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
+    background: var(--olive);
+    color: var(--text-cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    line-height: 1.6;
   }
-  #canva-frame {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+  .wrap {
+    max-width: 480px;
+    margin: 0 auto;
   }
-  #player-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #f2ede3;
-    padding: 16px 20px;
-    box-sizing: border-box;
+  .section {
+    padding: 56px 32px;
     text-align: center;
-    font-family: Georgia, 'Times New Roman', serif;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
-    z-index: 999;
   }
-  #player-bar p {
-    font-style: italic;
-    color: #5a5347;
+  .section-alt {
+    background: var(--olive-dark);
+  }
+  h1, h2, h3 {
+    font-weight: 400;
+    margin: 0;
+  }
+  .eyebrow {
     font-size: 15px;
-    margin: 0 0 12px;
+    letter-spacing: 0.08em;
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+  .script {
+    font-family: 'Parisienne', cursive;
+    font-size: 56px;
+    line-height: 1.1;
+    margin: 8px 0;
+  }
+  .display {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 34px;
+    margin: 0 0 24px;
+  }
+  .date {
+    letter-spacing: 0.15em;
+    font-size: 15px;
+    margin-top: 18px;
+  }
+  .photo {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 24px auto 0;
+    display: block;
+    border: 1px solid var(--line);
+  }
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+    margin: 28px auto;
+  }
+  .names {
+    font-size: 16px;
+    margin: 4px 0;
+  }
+  .names-group {
+    margin-bottom: 18px;
+  }
+
+  /* Player */
+  #player {
+    padding: 40px 32px 48px;
+  }
+  #player p {
+    font-style: italic;
+    font-size: 17px;
+    margin: 0 0 20px;
   }
   #seekbar {
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     -webkit-appearance: none;
     appearance: none;
-    height: 2px;
-    background: #5a5347;
-    border-radius: 2px;
+    height: 1px;
+    background: var(--line);
     outline: none;
     cursor: pointer;
   }
   #seekbar::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 12px;
-    height: 12px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
-    background: #5a5347;
+    background: var(--text-cream);
     cursor: pointer;
   }
   #seekbar::-moz-range-thumb {
-    width: 12px;
-    height: 12px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
-    background: #5a5347;
+    background: var(--text-cream);
     border: none;
     cursor: pointer;
+  }
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 18px;
+  }
+  .controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-cream);
+    padding: 0;
+  }
+  #playBtn {
+    border: 1px solid var(--text-cream);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ubicación button */
+  .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    border: 1px solid var(--text-cream);
+    border-radius: 2px;
+    color: var(--text-cream);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Countdown */
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 24px;
+  }
+  .countdown div {
+    text-align: center;
+  }
+  .countdown span {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+  }
+  .countdown small {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    opacity: 0.75;
+  }
+
+  /* Itinerario */
+  .itinerary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 12px;
+    margin-top: 32px;
+  }
+  .itinerary-grid .item svg {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 10px;
+  }
+  .itinerary-grid .item p {
+    margin: 0;
+    font-size: 14px;
+  }
+  .itinerary-grid .item .time {
+    font-size: 13px;
+    opacity: 0.8;
+  }
+
+  /* Dress code */
+  .dress-role {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    margin: 24px 0 6px;
+  }
+  .swatches {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .swatch {
+    width: 34px;
+    height: 46px;
+    border-radius: 2px;
+    border: 1px solid var(--line);
+  }
+
+  /* RSVP */
+  .rsvp-note {
+    font-size: 15px;
+    margin-top: 12px;
+    opacity: 0.9;
+  }
+
+  /* List */
+  .info-list {
+    text-align: left;
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+  }
+  .info-list li {
+    font-size: 15px;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+  }
+  .info-list li:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .small-caps {
+    font-size: 13px;
+    letter-spacing: 0.1em;
   }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<iframe id="canva-frame" src="https://milejavi.my.canva.site/copia-de-invitaci-n-mobil" allow="autoplay"></iframe>
-
-<div id="player-bar">
-  <p>Dale play a nuestra canción</p>
-
-  <input type="range" id="seekbar" value="0" min="0" max="100" step="0.1">
-
-  <div style="display:flex; align-items:center; justify-content:center; gap:26px; margin-top:14px;">
-    <button id="prevBtn" aria-label="Anterior" style="background:none; border:none; cursor:pointer; color:#5a5347; padding:0;">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <polygon points="19,5 8,12 19,19" fill="currentColor" stroke="none"/>
-        <rect x="4" y="5" width="2" height="14" fill="currentColor" stroke="none"/>
-      </svg>
-    </button>
-
-    <button id="playBtn" aria-label="Reproducir" style="background:none; border:1.5px solid #5a5347; border-radius:50%; width:46px; height:46px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:#5a5347; padding:0;">
-      <svg id="playIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-        <polygon points="6,4 20,12 6,20"/>
-      </svg>
-      <svg id="pauseIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
-        <rect x="5" y="4" width="5" height="16"/>
-        <rect x="14" y="4" width="5" height="16"/>
-      </svg>
-    </button>
-
-    <button id="nextBtn" aria-label="Siguiente" style="background:none; border:none; cursor:pointer; color:#5a5347; padding:0;">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <polygon points="5,5 16,12 5,19" fill="currentColor" stroke="none"/>
-        <rect x="18" y="5" width="2" height="14" fill="currentColor" stroke="none"/>
-      </svg>
-    </button>
+  <div class="section">
+    <p class="eyebrow">Te invitamos<br>a nuestra boda</p>
+    <p class="script">Mile &amp; Javi</p>
+    <img class="photo" src="pareja.jpg" alt="Mile y Javi" onerror="this.style.display='none'">
+    <p class="date">12 · 09 · 26</p>
   </div>
 
-  <audio id="audio" src="song.mp3"></audio>
+  <div class="section" style="padding-top:0;">
+    <p style="font-size:15px;">Con la bendición de nuestros padres,</p>
+    <div class="names-group">
+      <p class="names">Luis Alberto Sandoval</p>
+      <p class="names">Cecilia Albarracín</p>
+    </div>
+    <div class="names-group">
+      <p class="names">Carlos Arturo Pérez</p>
+      <p class="names">María Alicia Romero</p>
+    </div>
+  </div>
+
+  <div id="player">
+    <p>Dale play a nuestra canción</p>
+    <input type="range" id="seekbar" value="0" min="0" max="100" step="0.1">
+    <div class="controls">
+      <button id="prevBtn" aria-label="Anterior">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <polygon points="19,5 8,12 19,19" fill="currentColor" stroke="none"/>
+          <rect x="4" y="5" width="2" height="14" fill="currentColor" stroke="none"/>
+        </svg>
+      </button>
+      <button id="playBtn" aria-label="Reproducir">
+        <svg id="playIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="6,4 20,12 6,20"/>
+        </svg>
+        <svg id="pauseIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+          <rect x="5" y="4" width="5" height="16"/>
+          <rect x="14" y="4" width="5" height="16"/>
+        </svg>
+      </button>
+      <button id="nextBtn" aria-label="Siguiente">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <polygon points="5,5 16,12 5,19" fill="currentColor" stroke="none"/>
+          <rect x="18" y="5" width="2" height="14" fill="currentColor" stroke="none"/>
+        </svg>
+      </button>
+    </div>
+    <audio id="audio" src="song.mp3"></audio>
+  </div>
+
+  <div class="section section-alt">
+    <p class="script" style="font-size:38px;">Celebra<br>nos casamos</p>
+    <div class="divider"></div>
+    <p style="font-size:16px;">Ceremonia &amp; recepción</p>
+    <p style="font-size:15px; opacity:0.85;">Hacienda Arkadia, Chía</p>
+    <a class="btn" href="#" target="_blank" rel="noopener">Ver ubicación</a>
+  </div>
+
+  <div class="section">
+    <p class="display" style="margin-bottom:6px;">prepárate!</p>
+    <p class="small-caps">Nos vemos dentro de</p>
+    <div class="countdown" id="countdown">
+      <div><span id="cd-days">00</span><small>días</small></div>
+      <div><span id="cd-hours">00</span><small>horas</small></div>
+      <div><span id="cd-min">00</span><small>min</small></div>
+      <div><span id="cd-sec">00</span><small>seg</small></div>
+    </div>
+  </div>
+
+  <div class="section section-alt">
+    <p class="display">Itinerario</p>
+    <div class="itinerary-grid">
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13l2-5a2 2 0 012-1h10a2 2 0 012 1l2 5"/><rect x="2" y="13" width="20" height="5" rx="1"/><circle cx="7" cy="18" r="1.3"/><circle cx="17" cy="18" r="1.3"/></svg>
+        <p>Llegada</p><p class="time">3:30pm</p>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M8 8h8"/></svg>
+        <p>Ceremonia</p><p class="time">3:30pm</p>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M7 3h10l-1 7a4 4 0 01-8 0z"/><path d="M12 14v7M9 21h6"/></svg>
+        <p>Cóctel</p><p class="time">4:30pm</p>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M8 8l8 8M8 12h8"/></svg>
+        <p>Cena</p><p class="time">6:30pm</p>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="6" r="3"/><path d="M12 9v12M6 21h12"/></svg>
+        <p>Celebración</p><p class="time">8:30pm</p>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+        <p>Salida</p><p class="time">12:00am</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="display">Dress code</p>
+    <p style="font-size:15px;">Nos encantará celebrar este día rodeados de mucho color y elegancia.</p>
+    <p class="dress-role">Hombres</p>
+    <p style="font-size:15px;">Traje negro &amp; camisa blanca<br>Corbatín o corbata negra</p>
+    <p class="dress-role">Mujeres</p>
+    <p style="font-size:15px;">Vestido de gala largo en colores vibrantes</p>
+
+    <p class="script" style="font-size:30px; margin-top:36px;">Colores reservados</p>
+    <div class="swatches">
+      <div class="swatch" style="background:#3f4a2e;"></div>
+      <div class="swatch" style="background:#c98fa0;"></div>
+      <div class="swatch" style="background:#c6a15b;"></div>
+      <div class="swatch" style="background:#b9bdb6;"></div>
+      <div class="swatch" style="background:#f3efe4;"></div>
+    </div>
+    <p style="font-size:14px; margin-top:14px; opacity:0.85;">Verde, rosa, dorado, plateado y blanco</p>
+  </div>
+
+  <div class="section section-alt">
+    <p class="display">R S V P</p>
+    <p class="rsvp-note">Esperamos poder contar con tu presencia, por favor,<br>confirmar asistencia hasta el 1 de agosto del 2026.</p>
+    <a class="btn" href="#" target="_blank" rel="noopener">Confirma en el link enviado a WhatsApp</a>
+  </div>
+
+  <div class="section">
+    <p class="script" style="font-size:38px;">Regalos</p>
+    <p style="font-size:15px;">Lo más importante para nosotros es compartir este día con
+    ustedes. Como regalo, hemos elegido una lluvia de sobres
+    para acompañarnos en el inicio de esta nueva etapa.</p>
+  </div>
+
+  <div class="section section-alt" style="text-align:left;">
+    <p class="script" style="text-align:center; font-size:32px;">Lo que necesitas saber…</p>
+    <p style="font-size:14px; text-align:center; opacity:0.85; margin-top:-6px;">Queremos que disfruten este día tanto como nosotros. Aquí encontrarán algunos detalles importantes para que todo transcurra de la mejor manera.</p>
+    <ul class="info-list">
+      <li>La ceremonia comenzará puntualmente a las 3:30 p. m.. Recomendamos llegar con anticipación, ya que una vez iniciada no será posible el ingreso.</li>
+      <li>El lugar cuenta con parqueadero para mayor comodidad.</li>
+      <li>Durante la Eucaristía, les invitamos a dejar los celulares a un lado y vivir este momento junto a nosotros. Después podrán tomar todas las fotografías y videos que deseen.</li>
+      <li>Agradecemos confirmar la asistencia a través del enlace enviado con la invitación antes del 1 de agosto de 2026, ya que esto nos ayudará a organizar cada detalle con mucho cariño.</li>
+      <li>La invitación ha sido preparada especialmente para las personas cuyos nombres aparecen en ella.</li>
+      <li>Nuestra celebración será exclusivamente para adultos.</li>
+      <li>Si algún invitado tiene una alergia o restricción alimentaria, agradecemos informarlo antes del 1 de agosto.</li>
+      <li>La celebración finalizará a las 12:00 a. m.</li>
+    </ul>
+    <p style="font-size:14px; text-align:center; margin-top:18px;">Si tienen alguna duda, podrán comunicarse con nosotros al XXXX. Estaremos felices de ayudarles.</p>
+  </div>
+
+  <div class="section">
+    <p class="script" style="font-size:44px;">Gracias</p>
+    <p style="font-size:15px;">por ser parte de nuestra historia.<br>No vemos la hora de celebrar contigo.</p>
+  </div>
+
 </div>
 
 <script>
@@ -147,6 +448,24 @@
   document.getElementById('nextBtn').addEventListener('click', function() {
     audio.currentTime = audio.duration || 0;
   });
+
+  // Countdown to the wedding: 12 septiembre 2026, 3:30pm
+  const weddingDate = new Date('2026-09-12T15:30:00');
+  function updateCountdown() {
+    const now = new Date();
+    let diff = weddingDate - now;
+    if (diff < 0) diff = 0;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((diff / (1000 * 60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+    document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('cd-min').textContent = String(mins).padStart(2, '0');
+    document.getElementById('cd-sec').textContent = String(secs).padStart(2, '0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 </script>
 
 </body>
