@@ -3,271 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mile &amp; Javi — Nos casamos</title>
-<meta name="description" content="Te invitamos a nuestra boda, 12.09.26">
-<meta property="og:title" content="Mile &amp; Javi — Nos casamos">
-<meta property="og:description" content="Te invitamos a nuestra boda, 12.09.26">
+<title>Nuestra canción</title>
+<meta name="description" content="Reproductor de nuestra canción">
+<meta property="og:title" content="Nuestra canción">
+<meta property="og:description" content="Dale play a nuestra canción">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Parisienne&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --olive: #7d7e5e;
-    --text-cream: #f3efe4;
-    --line: rgba(243,239,228,0.35);
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--olive) url('assets/textura-olivo.jpg');
-    background-size: 900px;
-    color: var(--text-cream);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    line-height: 1.6;
-  }
-  .wrap {
-    max-width: 480px;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-  .section {
-    padding: 56px 32px;
-    text-align: center;
-    position: relative;
-  }
-  .section-cream {
-    background: #f3efe4 url('assets/textura-crema.jpg');
-    background-size: 900px;
-    color: #4a4a38;
-  }
-  .section-cream .line { background: rgba(74,74,56,0.25); }
-  h1, h2, h3 { font-weight: 400; margin: 0; }
-  .eyebrow {
-    font-size: 15px;
-    letter-spacing: 0.08em;
-    font-style: italic;
-    margin-bottom: 6px;
-  }
-  .floral-corner {
-    width: 130px;
-    display: block;
-    margin: 0 auto 6px;
-    opacity: 0.9;
-  }
-  .franja-floral {
-    width: 100%;
-    display: block;
-  }
-  img.asset {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-  .date {
-    letter-spacing: 0.15em;
-    font-size: 15px;
-    margin-top: 18px;
-  }
-  .photo {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 24px auto 0;
-    display: block;
-    border: 1px solid var(--line);
-  }
-  .divider {
-    width: 40px;
-    height: 1px;
-    background: var(--line);
-    margin: 28px auto;
-  }
-  .names { font-size: 16px; margin: 4px 0; }
-  .names-group { margin-bottom: 18px; }
+</head>
+<body style="margin:0; padding:0;">
 
-  /* Player */
-  #player { padding: 30px 32px 48px; }
-  #player p { font-style: italic; font-size: 17px; margin: 0 0 20px; }
-  #seekbar {
-    width: 100%;
-    max-width: 300px;
-    -webkit-appearance: none;
-    appearance: none;
-    height: 1px;
-    background: var(--line);
-    outline: none;
-    cursor: pointer;
-  }
+<div style="background:#f2ede3; padding:40px 30px; border-radius:8px; max-width:420px; margin:0 auto; text-align:center; font-family: Georgia, 'Times New Roman', serif;">
+
+  <p style="font-style: italic; color:#5a5347; font-size:18px; margin:0 0 28px;">
+    Dale play a nuestra canción
+  </p>
+
+  <input type="range" id="seekbar" value="0" min="0" max="100" step="0.1"
+    style="width:100%; -webkit-appearance:none; appearance:none; height:2px; background:#5a5347; border-radius:2px; outline:none; margin:0 0 24px; cursor:pointer;">
+
+  <div style="display:flex; align-items:center; justify-content:center; gap:26px;">
+    <button id="prevBtn" aria-label="Anterior" style="background:none; border:none; cursor:pointer; color:#5a5347;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polygon points="19,5 8,12 19,19" fill="currentColor" stroke="none"/>
+        <rect x="4" y="5" width="2" height="14" fill="currentColor" stroke="none"/>
+      </svg>
+    </button>
+
+    <button id="playBtn" aria-label="Reproducir" style="background:none; border:1.5px solid #5a5347; border-radius:50%; width:46px; height:46px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:#5a5347;">
+      <svg id="playIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <polygon points="6,4 20,12 6,20"/>
+      </svg>
+      <svg id="pauseIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+        <rect x="5" y="4" width="5" height="16"/>
+        <rect x="14" y="4" width="5" height="16"/>
+      </svg>
+    </button>
+
+    <button id="nextBtn" aria-label="Siguiente" style="background:none; border:none; cursor:pointer; color:#5a5347;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polygon points="5,5 16,12 5,19" fill="currentColor" stroke="none"/>
+        <rect x="18" y="5" width="2" height="14" fill="currentColor" stroke="none"/>
+      </svg>
+    </button>
+  </div>
+
+  <audio id="audio" src="song.mp3"></audio>
+</div>
+
+<style>
   #seekbar::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 9px; height: 9px; border-radius: 50%;
-    background: var(--text-cream); cursor: pointer;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #5a5347;
+    cursor: pointer;
   }
   #seekbar::-moz-range-thumb {
-    width: 9px; height: 9px; border-radius: 50%;
-    background: var(--text-cream); border: none; cursor: pointer;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #5a5347;
+    border: none;
+    cursor: pointer;
   }
-  .controls {
-    display: flex; align-items: center; justify-content: center;
-    gap: 24px; margin-top: 18px;
-  }
-  .controls button { background: none; border: none; cursor: pointer; color: var(--text-cream); padding: 0; }
-  #playBtn {
-    border: 1px solid var(--text-cream); border-radius: 50%;
-    width: 42px; height: 42px;
-    display: flex; align-items: center; justify-content: center;
-  }
-
-  .btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 28px;
-    border: 1px solid var(--text-cream);
-    border-radius: 2px;
-    color: var(--text-cream);
-    text-decoration: none;
-    font-size: 14px;
-    letter-spacing: 0.05em;
-  }
-  .section-cream .btn { border-color: #4a4a38; color: #4a4a38; }
-
-  /* Countdown */
-  .countdown { display: flex; justify-content: center; gap: 18px; margin-top: 20px; }
-  .countdown div { text-align: center; }
-  .countdown span { display: block; font-family: 'Playfair Display', serif; font-size: 30px; }
-  .countdown small { font-size: 11px; letter-spacing: 0.1em; opacity: 0.75; }
-
-  /* RSVP */
-  .rsvp-note { font-size: 15px; margin-top: 12px; opacity: 0.9; }
-
-  /* List */
-  .info-list { text-align: left; margin-top: 24px; padding: 0; list-style: none; }
-  .info-list li { font-size: 15px; padding: 10px 0; border-top: 1px solid rgba(74,74,56,0.2); }
-  .info-list li:last-child { border-bottom: 1px solid rgba(74,74,56,0.2); }
-
-  .script-fallback { font-family: 'Parisienne', cursive; }
 </style>
-</head>
-<body>
-<div class="wrap">
-
-  <div class="section">
-    <img class="floral-corner" src="assets/floral-corner.png" alt="">
-    <p class="eyebrow">Te invitamos<br>a nuestra boda</p>
-    <img class="asset" style="width:220px; margin-top:6px;" src="assets/monograma-mj.png" alt="Mile &amp; Javi">
-    <img class="photo" src="pareja.jpg" alt="Mile y Javi" onerror="this.style.display='none'">
-    <p class="date">12 · 09 · 26</p>
-  </div>
-
-  <div class="section" style="padding-top:0;">
-    <p style="font-size:15px;">Con la bendición de nuestros padres,</p>
-    <div class="names-group">
-      <p class="names">Luis Alberto Sandoval</p>
-      <p class="names">Cecilia Albarracín</p>
-    </div>
-    <div class="names-group">
-      <p class="names">Carlos Arturo Pérez</p>
-      <p class="names">María Alicia Romero</p>
-    </div>
-  </div>
-
-  <div id="player">
-    <p>Dale play a nuestra canción</p>
-    <input type="range" id="seekbar" value="0" min="0" max="100" step="0.1">
-    <div class="controls">
-      <button id="prevBtn" aria-label="Anterior">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <polygon points="19,5 8,12 19,19" fill="currentColor" stroke="none"/>
-          <rect x="4" y="5" width="2" height="14" fill="currentColor" stroke="none"/>
-        </svg>
-      </button>
-      <button id="playBtn" aria-label="Reproducir">
-        <svg id="playIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-          <polygon points="6,4 20,12 6,20"/>
-        </svg>
-        <svg id="pauseIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
-          <rect x="5" y="4" width="5" height="16"/>
-          <rect x="14" y="4" width="5" height="16"/>
-        </svg>
-      </button>
-      <button id="nextBtn" aria-label="Siguiente">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <polygon points="5,5 16,12 5,19" fill="currentColor" stroke="none"/>
-          <rect x="18" y="5" width="2" height="14" fill="currentColor" stroke="none"/>
-        </svg>
-      </button>
-    </div>
-    <audio id="audio" src="song.mp3"></audio>
-  </div>
-
-  <div class="section">
-    <p class="script-fallback" style="font-size:38px;">Celebra<br>nos casamos</p>
-    <div class="divider"></div>
-    <p style="font-size:16px;">Ceremonia &amp; recepción</p>
-    <p style="font-size:15px; opacity:0.85;">Hacienda Arkadia, Chía</p>
-    <a class="btn" href="#" target="_blank" rel="noopener">Ver ubicación</a>
-  </div>
-
-  <div class="section">
-    <img class="asset" style="max-width:340px;" src="assets/preparate-titulo.png" alt="Prepárate! Nos vemos dentro de">
-    <div class="countdown" id="countdown">
-      <div><span id="cd-days">00</span><small>días</small></div>
-      <div><span id="cd-hours">00</span><small>horas</small></div>
-      <div><span id="cd-min">00</span><small>min</small></div>
-      <div><span id="cd-sec">00</span><small>seg</small></div>
-    </div>
-  </div>
-
-  <div class="section">
-    <img class="asset" src="assets/itinerario.png" alt="Itinerario">
-  </div>
-
-  <div class="section section-cream">
-    <img class="asset" src="assets/dresscode-colores.png" alt="Dress code y colores reservados">
-  </div>
-
-  <div class="section">
-    <p class="script-fallback" style="font-size:36px;">R S V P</p>
-    <p class="rsvp-note">Esperamos poder contar con tu presencia, por favor,<br>confirmar asistencia hasta el 1 de agosto del 2026.</p>
-    <a class="btn" href="#" target="_blank" rel="noopener">Confirma en el link enviado a WhatsApp</a>
-  </div>
-
-  <div class="section">
-    <img class="asset" style="max-width:260px;" src="assets/regalos-titulo.png" alt="Regalos">
-    <p style="font-size:15px; margin-top:16px;">Lo más importante para nosotros es compartir este día con
-    ustedes. Como regalo, hemos elegido una lluvia de sobres
-    para acompañarnos en el inicio de esta nueva etapa.</p>
-    <img class="asset" style="width:100px; margin-top:20px; opacity:0.9;" src="assets/sobre-decorativo.png" alt="">
-  </div>
-
-  <div class="section section-cream" style="text-align:left;">
-    <img class="asset" style="max-width:280px; margin:0 auto 8px;" src="assets/necesitas-saber-titulo.png" alt="Lo que necesitas saber">
-    <p style="font-size:14px; text-align:center; opacity:0.85;">Queremos que disfruten este día tanto como nosotros. Aquí encontrarán algunos detalles importantes para que todo transcurra de la mejor manera.</p>
-    <ul class="info-list">
-      <li>La ceremonia comenzará puntualmente a las 3:30 p. m.. Recomendamos llegar con anticipación, ya que una vez iniciada no será posible el ingreso.</li>
-      <li>El lugar cuenta con parqueadero para mayor comodidad.</li>
-      <li>Durante la Eucaristía, les invitamos a dejar los celulares a un lado y vivir este momento junto a nosotros. Después podrán tomar todas las fotografías y videos que deseen.</li>
-      <li>Agradecemos confirmar la asistencia a través del enlace enviado con la invitación antes del 1 de agosto de 2026, ya que esto nos ayudará a organizar cada detalle con mucho cariño.</li>
-      <li>La invitación ha sido preparada especialmente para las personas cuyos nombres aparecen en ella.</li>
-      <li>Nuestra celebración será exclusivamente para adultos.</li>
-      <li>Si algún invitado tiene una alergia o restricción alimentaria, agradecemos informarlo antes del 1 de agosto.</li>
-      <li>La celebración finalizará a las 12:00 a. m.</li>
-    </ul>
-    <p style="font-size:14px; text-align:center; margin-top:18px;">Si tienen alguna duda, podrán comunicarse con nosotros al XXXX. Estaremos felices de ayudarles.</p>
-  </div>
-
-  <div class="section">
-    <img class="franja-floral" src="assets/franja-floral.png" alt="" style="margin-bottom:20px; opacity:0.9;">
-    <p class="script-fallback" style="font-size:44px;">Gracias</p>
-    <p style="font-size:15px;">por ser parte de nuestra historia.<br>No vemos la hora de celebrar contigo.</p>
-  </div>
-
-</div>
 
 <script>
   const audio = document.getElementById('audio');
@@ -307,24 +106,6 @@
   document.getElementById('nextBtn').addEventListener('click', function() {
     audio.currentTime = audio.duration || 0;
   });
-
-  // Countdown a la boda: 12 septiembre 2026, 3:30pm
-  const weddingDate = new Date('2026-09-12T15:30:00');
-  function updateCountdown() {
-    const now = new Date();
-    let diff = weddingDate - now;
-    if (diff < 0) diff = 0;
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const mins = Math.floor((diff / (1000 * 60)) % 60);
-    const secs = Math.floor((diff / 1000) % 60);
-    document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
-    document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
-    document.getElementById('cd-min').textContent = String(mins).padStart(2, '0');
-    document.getElementById('cd-sec').textContent = String(secs).padStart(2, '0');
-  }
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
 </script>
 
 </body>
