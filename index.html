@@ -158,7 +158,7 @@
     .celebra-flex .venue-copy { text-align: center; }
   }
   .celebra-graphic { width: min(360px, 48vw); display: block; margin: 0 auto; height: auto; }
-  .church-graphic { width: min(276px, 36.8vw); display: block; margin: 12px auto 0; opacity: 0.95; height: auto; }
+  .church-graphic { width: min(318px, 42vw); display: block; margin: 12px auto 0; opacity: 0.95; height: auto; }
   .gazebo { width: 140px; margin-top: 20px; }
   .btn {
     display: inline-block;
@@ -290,13 +290,13 @@
   .info-list li:last-child { border-bottom: none; }
   .info-list li strong { font-weight: 700; }
 
-  .gracias-title { display: block; width: min(100%, 320px); max-width: 360px; margin: 0 auto 0; }
+  .gracias-title { display: block; width: min(100%, 280px); max-width: 320px; margin: 0 auto 0; }
   .section.cream:last-of-type { padding: clamp(8px, 2vw, 16px) clamp(16px, 4vw, 28px); }
-  .section.cream:last-of-type .section-text { margin: -10px auto 0; max-width: 560px; line-height: 1.35; }
+  .section.cream:last-of-type .section-text { margin: 8px auto 0; max-width: 560px; line-height: 1.35; }
   .section.cream:last-of-type .section-text + .section-text { margin-top: 0; }
   /* Hero layout adjustments to match Canva (refined) */
   .section.olive:first-of-type {
-    padding-top: 0;
+    padding-top: clamp(40px, 6vw, 90px);
     padding-bottom: 0;
     min-height: 72vh;
     display: flex;
@@ -308,7 +308,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 24px;
+    padding-top: clamp(30px, 5vw, 60px);
     padding-bottom: 24px;
     gap: 48px;
   }
@@ -349,9 +349,10 @@
       inset: 0;
       display:flex;
       flex-direction:column;
-      justify-content:center;
+      justify-content:flex-start;
       align-items:center;
       text-align:center;
+      padding-top: clamp(40px, 5vw, 70px);
       padding-right:0;
     }
     .hero-left .monograma { width: min(320px, 28vw); margin-top: 8px; }
@@ -372,8 +373,8 @@
       transform: none;
       width: 100%;
       max-width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       border-radius: 6px;
       display: block;
       margin: 0 auto;
@@ -412,21 +413,18 @@
   .eyebrow { font-size: clamp(18px, 2.2vw, 26px); font-style: italic; line-height: 1.15; letter-spacing: 0.02em; margin-bottom: 6px; }
   .monograma { width: min(380px, 58vw); margin: 6px 0 0; }
   .hero-photo {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translate(-50%, 54%);
+    position: static;
     width: clamp(260px, 42vw, 420px);
     max-width: 90vw;
-    aspect-ratio: 1/1;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     border-radius: 6px;
     border: 6px solid transparent;
     display: block;
     z-index: 3;
   }
   .hero-caption { margin: 0; text-align: center; }
-  .hero-caption .name { font-size: clamp(20px, 2.5vw, 28px); opacity: 0.95; margin: 0; }
+  .hero-caption .name { font-size: clamp(22px, 3vw, 34px); opacity: 0.95; margin: 0; }
   .hero-caption .date { font-weight: 700; font-size: clamp(20px, 2.5vw, 28px); margin: 0; letter-spacing: 0.04em; }
   .hero-caption .date strong { font-weight: 900; }
 
@@ -533,7 +531,7 @@
         <div class="venue-copy">
           <p class="venue-title">Ceremonia &amp; recepción</p>
           <p class="venue-subtitle">Hacienda Arkadia, Chía</p>
-          <a class="btn" href="#" target="_blank" rel="noopener">Ver ubicación</a>
+          <a class="btn" href="https://maps.app.goo.gl/GBNRGAxHry53htL28" target="_blank" rel="noopener">Ver ubicación</a>
         </div>
       </div>
     </div>
