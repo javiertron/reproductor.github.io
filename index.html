@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Parisienne&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
   :root {
     --olive: #82836e;
@@ -24,7 +24,7 @@
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: clamp(15px, 1.4vw, 18px);
     line-height: 1.6;
     overflow-x: hidden;
@@ -70,18 +70,51 @@
     display: block;
   }
   .hero-caption { margin-top: 14px; }
-  .hero-caption .name { font-size: 17px; }
-  .hero-caption .date { font-weight: 600; font-size: 17px; margin-top: 2px; }
+  .hero-caption .name { font-size: clamp(16px, 1.4vw, 20px); }
+  .hero-caption .date { font-weight: 600; font-size: clamp(16px, 1.4vw, 20px); margin-top: 2px; }
 
   /* ---- Names + Player (cream) ---- */
-  .names-title { font-style: italic; font-weight: 600; font-size: 17px; }
-  .names-group { margin: 18px 0; }
-  .names-group p { margin: 2px 0; font-size: 16px; }
+  .blessing-block {
+    max-width: 540px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .names-title {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(20px, 3.2vw, 28px);
+    line-height: 1.3;
+    margin: 0 0 20px;
+    color: var(--dark-text);
+  }
+  .names-card {
+    max-width: 320px;
+    margin: 0;
+  }
+  .names-card p {
+    margin: 0;
+    font-size: clamp(16px, 1.2vw, 20px);
+    line-height: 1.7;
+    color: var(--dark-text);
+  }
+  .names-spacer {
+    height: 14px;
+  }
 
-  #player { margin-top: 44px; }
-  #player p { font-style: italic; font-weight: 600; font-size: 16px; margin: 0 0 20px; }
+  #player { margin-top: 36px; }
+  #player .player-caption {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(17px, 1.5vw, 20px);
+    margin: 0 0 18px;
+  }
   #seekbar {
-    width: 100%; max-width: 300px;
+    width: 100%; max-width: 320px;
     -webkit-appearance: none; appearance: none;
     height: 1px; background: var(--line-on-cream); outline: none; cursor: pointer;
   }
@@ -100,9 +133,15 @@
   .church-graphic { width: min(240px, 32vw); display: block; margin: 12px auto 0; opacity: 0.95; height: auto; }
   .gazebo { width: 140px; margin-top: 20px; }
   .btn {
-    display: inline-block; margin-top: 18px; padding: 11px 26px;
-    border: 1px solid currentColor; border-radius: 2px;
-    color: inherit; text-decoration: none; font-size: 14px; letter-spacing: 0.04em;
+    display: inline-block;
+    margin-top: 18px;
+    padding: 11px 26px;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    color: inherit;
+    text-decoration: none;
+    font-size: clamp(13px, 1.1vw, 15px);
+    letter-spacing: 0.04em;
   }
 
   /* ---- Preparate / countdown ---- */
@@ -121,12 +160,51 @@
 
   /* ---- RSVP ---- */
   .rsvp-title { letter-spacing: 0.3em; font-size: 18px; }
-  .rsvp-note { font-size: 15px; margin-top: 14px; max-width: 420px; margin-left: auto; margin-right: auto; }
+  .rsvp-note { font-size: clamp(14px, 1.1vw, 16px); margin-top: 14px; max-width: 520px; margin-left: auto; margin-right: auto; }
   .rsvp-note strong { font-weight: 600; }
 
-  /* ---- Regalos ---- */
-  .script-title { font-family: 'Parisienne', cursive; font-size: clamp(32px, 5vw, 42px); }
-  .regalos-icon { width: 60px; margin-top: 22px; opacity: 0.85; }
+  .section-text {
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.65;
+    max-width: 560px;
+    margin: 16px auto 0;
+  }
+  .section-text--small {
+    font-size: clamp(13px, 1.1vw, 14px);
+  }
+  .venue-copy p {
+    margin: 0;
+  }
+  .section-text strong {
+    font-weight: 700;
+  }
+  .asset {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .venue-title {
+    font-weight: 600;
+    font-size: clamp(16px, 1.25vw, 18px);
+    margin-bottom: 8px;
+  }
+  .venue-subtitle {
+    font-size: clamp(14px, 1vw, 15px);
+    opacity: 0.9;
+  }
+  .preparate-asset { width: min(100%, 360px); }
+  .itinerario-asset { width: min(100%, 600px); }
+  .dresscode-asset { width: min(100%, 520px); }
+  .regalos-title-asset { width: min(100%, 320px); }
+  .regalos-icon {
+    width: min(140px, 24vw);
+    max-width: 140px;
+    margin-top: 28px;
+    opacity: 0.95;
+  }
+  .script-title { font-family: 'Montserrat', sans-serif; font-size: clamp(32px, 5vw, 42px); font-style: italic; font-weight: 700; }
+  .script-title--light { font-family: 'Montserrat', sans-serif; font-style: italic; font-weight: 400; margin-top: 0; }
 
   /* ---- Lo que necesitas saber ---- */
   .flor-decorativa { width: 90px; margin: 20px auto 6px; opacity: 0.8; }
@@ -183,6 +261,20 @@
   .hero-caption { margin-top: 12px; text-align: center; }
   .hero-caption .name { font-size: 18px; opacity: 0.95; }
   .hero-caption .date { font-weight: 700; font-size: 18px; margin-top: 4px; letter-spacing: 0.04em; }
+
+  @media (max-width: 699px) {
+    .section { padding: clamp(28px, 6vw, 40px) clamp(16px, 6vw, 24px); }
+    .hero-flex { gap: 20px; }
+    .names-card { max-width: 100%; }
+    .names-title { font-size: clamp(18px, 4vw, 24px); }
+    .venue-copy { padding: 0 8px; }
+    .preparate-asset, .itinerario-asset, .dresscode-asset, .regalos-title-asset { width: 100%; }
+    .regalos-icon { width: min(120px, 24vw); }
+    .info-list { padding: 0 8px; }
+    .flor-decorativa { width: 80px; }
+    .section-text { padding: 0 8px; }
+    .celebra-flex { gap: 18px; }
+  }
 </style>
 </head>
 <body>
@@ -210,18 +302,19 @@
   <!-- BENDICIÓN + PLAYER -->
   <div class="section cream">
     <div class="inner">
-      <p class="names-title">Con la bendición de nuestro padres,</p>
-      <div class="names-group">
-        <p>Luis Alberto Sandoval</p>
-        <p>Cecilia Albarracin</p>
-      </div>
-      <div class="names-group">
-        <p>Carlos Arturo Pérez</p>
-        <p>María Alicia Romero</p>
+      <div class="blessing-block">
+        <p class="names-title">Con la bendición de nuestros padres,</p>
+        <div class="names-card">
+          <p>Luis Alberto Sandoval</p>
+          <p>Cecilia Albarracin</p>
+          <div class="names-spacer"></div>
+          <p>Carlos Arturo Pérez</p>
+          <p>María Alicia Romero</p>
+        </div>
       </div>
 
       <div id="player">
-        <p>Dale play a nuestra canción</p>
+        <p class="player-caption">Dale play a nuestra canción</p>
         <input type="range" id="seekbar" value="0" min="0" max="100" step="0.1">
         <div class="controls">
           <button id="prevBtn" aria-label="Anterior">
@@ -259,9 +352,9 @@
           <img class="celebra-graphic" src="assets/c-16.png" alt="Celebra con nosotros">
           <img class="church-graphic" src="assets/c-15.png" alt="Iglesia">
         </div>
-        <div>
-          <p style="font-weight:600; font-size:18px;">Ceremonia &amp; recepción</p>
-          <p style="font-size:15px; opacity:0.9;">Hacienda Arkadia, Chía</p>
+        <div class="venue-copy">
+          <p class="venue-title">Ceremonia &amp; recepción</p>
+          <p class="venue-subtitle">Hacienda Arkadia, Chía</p>
           <a class="btn" href="#" target="_blank" rel="noopener">Ver ubicación</a>
         </div>
       </div>
@@ -271,7 +364,7 @@
   <!-- PREPARATE -->
   <div class="section cream">
     <div class="inner">
-      <img class="asset" style="max-width:min(360px, 92%);" src="assets/c-19.png" alt="Prepárate">
+      <img class="asset preparete-asset" src="assets/c-19.png" alt="Prepárate">
       <div class="countdown-row">
         <span class="num" id="cd-days">00</span><span class="colon">:</span>
         <span class="num" id="cd-hours">00</span><span class="colon">:</span>
@@ -287,14 +380,14 @@
   <!-- ITINERARIO -->
   <div class="section olive">
     <div class="inner">
-      <img class="asset" style="max-width:min(600px, 90%);" src="assets/itinerario.png" alt="Itinerario">
+      <img class="asset itinerario-asset" src="assets/itinerario.png" alt="Itinerario">
     </div>
   </div>
 
   <!-- DRESS CODE + COLORES -->
   <div class="section cream">
     <div class="inner">
-      <img class="asset" style="max-width:min(520px, 92%);" src="assets/dresscode-colores.png" alt="Dress code y colores reservados">
+      <img class="asset dresscode-asset" src="assets/dresscode-colores.png" alt="Dress code y colores reservados">
     </div>
   </div>
 
@@ -310,19 +403,19 @@
   <!-- REGALOS -->
   <div class="section cream">
     <div class="inner">
-      <img class="asset" style="max-width:min(320px, 92%);" src="assets/c-14.png" alt="Regalos">
-      <p style="font-size:15px; max-width:420px; margin:14px auto 0;">Lo más importante para nosotros es compartir este día con ustedes. Como regalo, hemos elegido una lluvia de sobres para acompañarnos en el inicio de esta nueva etapa.</p>
-      <img class="regalos-icon" src="assets/sobre-decorativo.png" alt="" style="width: 120px; max-width: 100%; margin-top: 28px; opacity: 0.95;">
+      <img class="asset regalos-title-asset" src="assets/c-14.png" alt="Regalos">
+      <p class="section-text">Lo más importante para nosotros es compartir este día con ustedes. Como regalo, hemos elegido una lluvia de sobres para acompañarnos en el inicio de esta nueva etapa.</p>
+      <img class="regalos-icon" src="assets/sobre-decorativo.png" alt="">
     </div>
   </div>
 
   <!-- LO QUE NECESITAS SABER -->
   <div class="section olive">
     <div class="inner">
-      <p class="script-title" style="font-family:'Playfair Display', serif; font-style:italic; font-weight:400;">Lo que</p>
-      <p class="script-title" style="margin-top:-8px;">necesitas</p>
-      <p class="script-title" style="font-family:'Playfair Display', serif; font-style:italic; font-weight:400; margin-top:-10px;">saber…</p>
-      <p style="font-size:14px; opacity:0.9; max-width:480px; margin:14px auto 0;">Queremos que disfruten este día tanto como nosotros. Aquí encontrarán algunos detalles importantes para que todo transcurra de la mejor manera.</p>
+      <p class="script-title script-title--light">Lo que</p>
+      <p class="script-title">necesitas</p>
+      <p class="script-title script-title--light">saber…</p>
+      <p class="section-text">Queremos que disfruten este día tanto como nosotros. Aquí encontrarán algunos detalles importantes para que todo transcurra de la mejor manera.</p>
 
       <img class="flor-decorativa" src="assets/flor-decorativa.png" alt="">
 
@@ -336,7 +429,7 @@
         <li>Si algún invitado tiene una alergia o restricción alimentaria, <strong>agradecemos</strong> informarlo antes del 1 de agosto.</li>
         <li>La celebración finalizará a las 12:00 a. m.</li>
       </ul>
-      <p style="font-size:14px; margin-top:18px;">Si tienen alguna duda, <strong>podrán comunicarse</strong> con nosotros al XXXX. Estaremos felices de ayudarles.</p>
+      <p class="section-text section-text--small">Si tienen alguna duda, <strong>podrán comunicarse</strong> con nosotros al XXXX. Estaremos felices de ayudarles.</p>
     </div>
   </div>
 
@@ -344,7 +437,7 @@
   <div class="section cream">
     <div class="inner">
       <p class="gracias-title">Gracias</p>
-      <p style="font-size:15px;">por ser parte de nuestra historia.<br>No vemos la hora de celebrar contigo.</p>
+      <p class="section-text">por ser parte de nuestra historia.<br>No vemos la hora de celebrar contigo.</p>
     </div>
   </div>
 
