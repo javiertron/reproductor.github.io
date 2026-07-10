@@ -155,6 +155,7 @@
   .celebra-flex { display: flex; flex-direction: column; align-items: center; gap: 24px; }
   @media (min-width: 700px) {
     .celebra-flex { flex-direction: row; justify-content: center; align-items: center; gap: 80px; text-align: left; }
+    .celebra-flex .venue-copy { text-align: center; }
   }
   .celebra-graphic { width: min(360px, 48vw); display: block; margin: 0 auto; height: auto; }
   .church-graphic { width: min(240px, 32vw); display: block; margin: 12px auto 0; opacity: 0.95; height: auto; }
@@ -269,9 +270,27 @@
   .flor-decorativa { width: 90px; margin: 20px auto 6px; opacity: 0.8; }
   .info-list { text-align: left; margin: 24px auto 0; padding: 0; list-style: none; max-width: 520px; }
   .info-list { text-align: left; margin: 24px auto 0; padding: 0; list-style: none; max-width: 520px; }
-  /* For sections using the hero-bg (Lo que necesitas saber), center texts and remove dividers */
+  /* For sections using the hero-bg (Lo que necesitas saber), center texts and add dividers */
   .section.olive.hero-bg .info-list { text-align: center; max-width: 640px; }
-  .section.olive.hero-bg .info-list li { font-size: 14.5px; padding: 8px 0; border-top: none; border-bottom: none; }
+  .section.olive.hero-bg .info-list li {
+    position: relative;
+    font-size: 14.5px;
+    padding: 18px 0;
+    border-top: none;
+    border-bottom: none;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .section.olive.hero-bg .info-list li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 1px;
+    background: rgba(255,255,255,0.45);
+  }
   .info-list li:last-child { border-bottom: none; }
   .info-list li strong { font-weight: 700; }
 
@@ -305,47 +324,41 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100vw;
+    width: 120vw;
     max-width: none;
     height: auto;
     margin: 0;
     opacity: 1;
     pointer-events: none;
     object-fit: cover;
-    z-index: 2;
+    z-index: 10;
   }
   .hero-flex { display: flex; flex-direction: column; align-items: center; gap: 20px; width:100%; max-width:1000px; }
   .hero-left, .hero-center, .hero-right { width: 100%; }
   .hero-center { display: flex; justify-content: center; align-items: center; }
   @media (min-width: 700px) {
     .hero-flex {
+      position: relative;
       display: grid;
-      grid-template-columns: minmax(260px, 40%) minmax(260px, 360px);
+      grid-template-columns: minmax(260px, 36%) minmax(260px, 360px);
       grid-template-rows: auto auto;
       align-items: start;
       justify-content: center;
-      gap: 60px;
+      gap: 0 60px;
     }
     .hero-left {
       grid-column: 1 / 2;
-      grid-row: 1 / span 2;
+      grid-row: 1 / 3;
+      position: absolute;
+      inset: 0;
       display:flex;
       flex-direction:column;
       justify-content:center;
-      align-items:flex-start;
-      text-align:left;
+      align-items:center;
+      text-align:center;
       padding-right:0;
     }
-    .hero-center {
-      grid-column: 2 / 3;
-      grid-row: 2 / 3;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      width: min(340px, 80vw);
-      justify-self: center;
-      margin-top: 1rem;
-    }
+    .hero-left .monograma { width: min(320px, 28vw); margin-top: 8px; }
     .hero-right {
       grid-column: 2 / 3;
       grid-row: 1 / 2;
@@ -353,10 +366,51 @@
       display:flex;
       flex-direction:column;
       align-items:center;
-      justify-content:flex-end;
-      position: relative;
-      padding-bottom: clamp(130px, 16vw, 180px);
+      justify-content:flex-start;
+      position: static;
+      padding-bottom: 0;
       justify-self: center;
+    }
+    .hero-right .hero-photo {
+      position: static;
+      transform: none;
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+      margin: 0 auto;
+    }
+    .hero-center {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      width: min(340px, 80vw);
+      justify-self: center;
+      margin-top: 10px;
+    }
+  }
+  /* Desktop tweaks: tighten space above second section */
+  @media (min-width: 1000px) {
+    .floral-corner {
+      width: 110vw;
+      z-index: 12;
+    }
+    .section.olive:first-of-type + .section.cream {
+      padding-top: clamp(120px, 16vw, 180px);
+    }
+  }
+
+  /* Stronger desktop adjustments: tighten second section spacing */
+  @media (min-width: 1200px) {
+    .floral-corner {
+      width: 110vw;
+      z-index: 14;
+      opacity: 1;
+    }
+    .hero-caption { z-index: 16; }
+    .section.olive:first-of-type + .section.cream {
+      padding-top: clamp(80px, 10vw, 120px);
     }
   }
   .eyebrow { font-size: clamp(18px, 2.2vw, 26px); font-style: italic; line-height: 1.15; letter-spacing: 0.02em; margin-bottom: 6px; }
@@ -376,8 +430,8 @@
     z-index: 3;
   }
   .hero-caption { margin: 0; text-align: center; }
-  .hero-caption .name { font-size: clamp(16px, 1.6vw, 20px); opacity: 0.95; }
-  .hero-caption .date { font-weight: 700; font-size: clamp(16px, 1.6vw, 20px); margin-top: 0; letter-spacing: 0.04em; }
+  .hero-caption .name { font-size: clamp(16px, 1.6vw, 20px); opacity: 0.95; margin: 0; }
+  .hero-caption .date { font-weight: 700; font-size: clamp(16px, 1.6vw, 20px); margin: 0; letter-spacing: 0.04em; }
   .hero-caption .date strong { font-weight: 900; }
 
   @media (max-width: 699px) {
