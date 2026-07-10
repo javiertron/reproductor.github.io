@@ -433,9 +433,13 @@
   @media (max-width: 699px) {
     .section { padding: clamp(28px, 6vw, 40px) clamp(16px, 6vw, 24px); }
     .hero-flex { gap: 20px; }
-    .hero-right { padding-bottom: 160px; position: relative; }
+    .hero-left { text-align: center; }
+    .hero-left .monograma { width: min(240px, 68vw); }
+    .hero-right { padding-bottom: 140px; position: relative; }
     .hero-center { width: 100%; }
-    .hero-photo { position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%); width: min(280px, 80vw); }
+    .hero-caption .name { font-size: clamp(18px, 4vw, 22px); }
+    .hero-caption .date { font-size: clamp(16px, 4vw, 20px); }
+    .hero-photo { position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%); width: min(280px, 85vw); max-width: 320px; }
     .names-card { max-width: 100%; }
     .names-title { font-size: clamp(18px, 4vw, 24px); }
     .venue-copy { padding: 0 8px; }
