@@ -36,7 +36,7 @@
   }
   .olive {
     background-color: var(--olive);
-    background-image: url('assets/textura-olivo.jpg');
+    background-image: url('assets/fondo_2.jpg');
     background-repeat: repeat;
     background-position: center;
     /* use natural tile size to avoid scaling seams */
@@ -55,7 +55,7 @@
   }
   .cream {
     background-color: var(--cream-bg);
-    background-image: url('assets/textura-crema.jpg');
+    background-image: url('assets/fondo_1.jpg');
     background-repeat: repeat;
     background-position: center;
     background-size: auto;
@@ -290,9 +290,9 @@
   .info-list li:last-child { border-bottom: none; }
   .info-list li strong { font-weight: 700; }
 
-  .gracias-title { font-family: 'Alex Brush', cursive; font-size: clamp(32px, 4vw, 44px); line-height: 1.05; margin: 0; }
-  .section.cream:last-of-type { padding: clamp(24px, 4vw, 40px) clamp(20px, 6vw, 36px); }
-  .section.cream:last-of-type .section-text { margin-top: 8px; max-width: 560px; }
+  .gracias-title { display: block; width: min(100%, 320px); max-width: 360px; margin: 0 auto 0; }
+  .section.cream:last-of-type { padding: clamp(8px, 2vw, 16px) clamp(16px, 4vw, 28px); }
+  .section.cream:last-of-type .section-text { margin: -10px auto 0; max-width: 560px; line-height: 1.35; }
   .section.cream:last-of-type .section-text + .section-text { margin-top: 0; }
   /* Hero layout adjustments to match Canva (refined) */
   .section.olive:first-of-type {
@@ -613,7 +613,7 @@
   <!-- GRACIAS -->
   <div class="section cream">
     <div class="inner">
-      <p class="gracias-title">Gracias</p>
+      <img class="gracias-title" src="assets/gracias-22.png" alt="Gracias">
       <p class="section-text">por ser parte de nuestra historia.<br>No vemos la hora de celebrar contigo.</p>
     </div>
   </div>
