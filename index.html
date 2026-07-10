@@ -136,6 +136,49 @@
   .info-list li strong { font-weight: 700; }
 
   .gracias-title { font-family: 'Parisienne', cursive; font-size: clamp(36px, 5vw, 48px); }
+  /* Hero layout adjustments to match Canva (refined) */
+  .section.olive:first-of-type {
+    padding-top: 0;
+    padding-bottom: clamp(20px, 6vw, 60px);
+    min-height: 72vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .section.olive:first-of-type .inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    gap: 48px;
+  }
+  .floral-corner {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(900px, 95%);
+    margin: 0;
+    opacity: 1;
+    pointer-events: none;
+  }
+  .hero-flex { display: flex; flex-direction: column; align-items: center; gap: 20px; width:100%; max-width:1000px; }
+  @media (min-width: 700px) {
+    .hero-flex { flex-direction: row; justify-content: center; align-items: center; gap: 60px; }
+  }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 8px; }
+  @media (min-width: 700px) {
+    .hero-left { align-items: flex-end; text-align: right; padding-right: 8px; }
+  }
+  .eyebrow { font-size: clamp(20px, 2.4vw, 28px); font-style: italic; line-height: 1.1; letter-spacing: 0.02em; margin-bottom: 6px; }
+  .monograma { width: min(280px, 45vw); margin: 6px 0 0; }
+  .hero-right { display: flex; flex-direction: column; align-items: center; }
+  .hero-photo { width: min(320px, 80vw); aspect-ratio: 3/4; object-fit: cover; border-radius: 6px; border: 6px solid rgba(243,239,228,0.06); }
+  .hero-caption { margin-top: 12px; text-align: center; }
+  .hero-caption .name { font-size: 18px; opacity: 0.95; }
+  .hero-caption .date { font-weight: 700; font-size: 18px; margin-top: 4px; letter-spacing: 0.04em; }
 </style>
 </head>
 <body>
