@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
     --olive: #82836e;
@@ -35,18 +35,45 @@
     position: relative;
   }
   .olive {
-    background: var(--olive) url('assets/textura-olivo.jpg');
-    background-size: 900px;
+    background-color: var(--olive);
+    background-image: url('assets/textura-olivo.jpg');
+    background-repeat: repeat;
+    background-position: center;
+    /* use natural tile size to avoid scaling seams */
+    background-size: auto;
+    background-attachment: scroll;
     color: var(--cream-text);
   }
+
+  /* Hero-specific background using c-06 asset */
+  .section.olive.hero-bg {
+    background-image: url('assets/c-06.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: scroll;
+  }
   .cream {
-    background: var(--cream-bg) url('assets/textura-crema.jpg');
-    background-size: 900px;
+    background-color: var(--cream-bg);
+    background-image: url('assets/textura-crema.jpg');
+    background-repeat: repeat;
+    background-position: center;
+    background-size: auto;
+    background-attachment: scroll;
     color: var(--dark-text);
   }
   .inner { max-width: 1000px; margin: 0 auto; }
   h1, h2, h3 { font-weight: 400; margin: 0; }
   img.asset { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+  /* Global responsive typography */
+  h1 { font-size: clamp(28px, 5vw, 48px); }
+  h2 { font-size: clamp(24px, 4vw, 36px); }
+  h3 { font-size: clamp(20px, 3.2vw, 28px); }
+  p, li { font-size: clamp(14px, 1.2vw, 16px); }
+
+  /* Ensure all assets scale responsively */
+  img { max-width: 100%; height: auto; }
 
   /* ---- HERO ---- */
   .floral-corner { width: 100%; max-width: 900px; display: block; margin: 0 auto 10px; opacity: 0.9; }
@@ -159,7 +186,15 @@
   .countdown-labels span { font-size: 10px; letter-spacing: 0.12em; opacity: 0.7; width: 2.6em; text-align: center; }
 
   /* ---- RSVP ---- */
-  .rsvp-title { letter-spacing: 0.3em; font-size: 18px; }
+  .rsvp-title {
+    letter-spacing: 0.22em;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(28px, 6vw, 56px);
+    margin: 0 0 10px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
   .rsvp-note { font-size: clamp(14px, 1.1vw, 16px); margin-top: 14px; max-width: 520px; margin-left: auto; margin-right: auto; }
   .rsvp-note strong { font-weight: 600; }
 
@@ -196,33 +231,62 @@
   .preparate-asset { width: min(100%, 360px); }
   .itinerario-asset { width: min(100%, 600px); }
   .dresscode-asset { width: min(100%, 520px); }
-  .regalos-title-asset { width: min(100%, 320px); }
+  /* Regalos title smaller, envelope larger and centered */
+  .regalos-title-asset { width: min(100%, 180px); }
   .regalos-icon {
-    width: min(140px, 24vw);
-    max-width: 140px;
-    margin-top: 28px;
+    width: min(220px, 36vw);
+    max-width: 220px;
+    margin-top: 18px;
     opacity: 0.95;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
+  .asset-mask {
+    width: min(100%, 420px);
+    max-width: 420px;
+    /* altura del área visible del ramo */
+    height: 260px;
+    margin: 16px auto 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .asset-c21 {
+    width: 100%;
+    /* bajar un poco más el ramo dentro de la máscara */
+    transform-origin: top center;
+    transform: translateY(-31px) scale(0.8);
+    display: block;
+  }
+  .section-text--above {
+    margin: 14px auto 0;
+    max-width: 320px;
+  }
+  /* Increased size for c-20 asset (≈15% up from 260px -> 300px) */
+  .c20-asset { width: min(100%, 300px); }
   .script-title { font-family: 'Montserrat', sans-serif; font-size: clamp(32px, 5vw, 42px); font-style: italic; font-weight: 700; }
   .script-title--light { font-family: 'Montserrat', sans-serif; font-style: italic; font-weight: 400; margin-top: 0; }
 
   /* ---- Lo que necesitas saber ---- */
   .flor-decorativa { width: 90px; margin: 20px auto 6px; opacity: 0.8; }
   .info-list { text-align: left; margin: 24px auto 0; padding: 0; list-style: none; max-width: 520px; }
-  .info-list li { font-size: 14.5px; padding: 9px 0; border-top: 1px solid var(--line-on-olive); }
-  .info-list li:last-child { border-bottom: 1px solid var(--line-on-olive); }
+  .info-list { text-align: left; margin: 24px auto 0; padding: 0; list-style: none; max-width: 520px; }
+  /* For sections using the hero-bg (Lo que necesitas saber), center texts and remove dividers */
+  .section.olive.hero-bg .info-list { text-align: center; max-width: 640px; }
+  .section.olive.hero-bg .info-list li { font-size: 14.5px; padding: 8px 0; border-top: none; border-bottom: none; }
+  .info-list li:last-child { border-bottom: none; }
   .info-list li strong { font-weight: 700; }
 
   .gracias-title { font-family: 'Parisienne', cursive; font-size: clamp(36px, 5vw, 48px); }
   /* Hero layout adjustments to match Canva (refined) */
   .section.olive:first-of-type {
     padding-top: 0;
-    padding-bottom: clamp(20px, 6vw, 60px);
+    padding-bottom: 0;
     min-height: 72vh;
     display: flex;
     align-items: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
   }
   .section.olive:first-of-type .inner {
     display: flex;
@@ -231,6 +295,9 @@
     padding-top: 24px;
     padding-bottom: 24px;
     gap: 48px;
+  }
+  .section.olive:first-of-type + .section.cream {
+    padding-top: clamp(150px, 24vw, 240px);
   }
   .floral-corner {
     position: absolute;
@@ -247,30 +314,48 @@
     z-index: 2;
   }
   .hero-flex { display: flex; flex-direction: column; align-items: center; gap: 20px; width:100%; max-width:1000px; }
+  .hero-left, .hero-center, .hero-right { width: 100%; }
+  .hero-center { display: flex; justify-content: center; align-items: center; }
   @media (min-width: 700px) {
     .hero-flex { flex-direction: row; justify-content: center; align-items: center; gap: 60px; }
+    .hero-left { flex: 1 1 min(260px, 40%); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding-right:0; }
+    .hero-center { flex: 0 0 min(220px, 25vw); }
+    .hero-right { flex: 0 0 min(420px, 80vw); width: min(420px, 80vw); display:flex; flex-direction:column; align-items:center; justify-content:flex-end; position: relative; }
   }
-  .hero-left { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 8px; }
-  @media (min-width: 700px) {
-    .hero-left { align-items: flex-end; text-align: right; padding-right: 8px; }
+  .eyebrow { font-size: clamp(18px, 2.2vw, 26px); font-style: italic; line-height: 1.15; letter-spacing: 0.02em; margin-bottom: 6px; }
+  .monograma { width: min(380px, 58vw); margin: 6px 0 0; }
+  .hero-photo {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    width: min(340px, 80vw);
+    max-width: 360px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 6px solid rgba(243,239,228,0.06);
+    display: block;
+    z-index: 3;
   }
-  .eyebrow { font-size: clamp(20px, 2.4vw, 28px); font-style: italic; line-height: 1.1; letter-spacing: 0.02em; margin-bottom: 6px; }
-  .monograma { width: min(280px, 45vw); margin: 6px 0 0; }
-  .hero-right { display: flex; flex-direction: column; align-items: center; }
-  .hero-photo { width: min(320px, 80vw); aspect-ratio: 3/4; object-fit: cover; border-radius: 6px; border: 6px solid rgba(243,239,228,0.06); }
-  .hero-caption { margin-top: 12px; text-align: center; }
-  .hero-caption .name { font-size: 18px; opacity: 0.95; }
-  .hero-caption .date { font-weight: 700; font-size: 18px; margin-top: 4px; letter-spacing: 0.04em; }
+  .hero-caption { margin: 0; text-align: center; }
+  .hero-caption .name { font-size: clamp(16px, 1.6vw, 20px); opacity: 0.95; }
+  .hero-caption .date { font-weight: 700; font-size: clamp(16px, 1.6vw, 20px); margin-top: 0; letter-spacing: 0.04em; }
+  .hero-caption .date strong { font-weight: 900; }
 
   @media (max-width: 699px) {
     .section { padding: clamp(28px, 6vw, 40px) clamp(16px, 6vw, 24px); }
     .hero-flex { gap: 20px; }
+    .hero-right { padding-bottom: 120px; }
+    .hero-center { width: 100%; }
+    .hero-photo { position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%); width: min(280px, 80vw); }
     .names-card { max-width: 100%; }
     .names-title { font-size: clamp(18px, 4vw, 24px); }
     .venue-copy { padding: 0 8px; }
     .preparate-asset, .itinerario-asset, .dresscode-asset, .regalos-title-asset { width: 100%; }
     .regalos-icon { width: min(120px, 24vw); }
     .info-list { padding: 0 8px; }
+    .section.olive.hero-bg .info-list { padding: 0 12px; }
     .flor-decorativa { width: 80px; }
     .section-text { padding: 0 8px; }
     .celebra-flex { gap: 18px; }
@@ -280,7 +365,7 @@
 <body>
 
   <!-- HERO -->
-  <div class="section olive">
+  <div class="section olive hero-bg">
     <div class="inner">
       <img class="floral-corner" src="assets/c-07.png" alt="franja floral">
       <div class="hero-flex">
@@ -288,12 +373,14 @@
           <p class="eyebrow">Te invitamos<br>a nuestra boda</p>
           <img class="monograma" src="assets/monograma-mj.png" alt="Mile &amp; Javi">
         </div>
-        <div class="hero-right">
-          <img class="hero-photo" src="pareja.jpg" alt="Mile y Javi" onerror="this.style.display='none'">
+        <div class="hero-center">
           <div class="hero-caption">
             <p class="name">Mile &amp; Javi</p>
-            <p class="date">12.09.26</p>
+            <p class="date"><strong>12.09.26</strong></p>
           </div>
+        </div>
+        <div class="hero-right">
+          <img class="hero-photo" src="assets/foto.png" alt="Mile y Javi">
         </div>
       </div>
     </div>
@@ -378,7 +465,7 @@
   </div>
 
   <!-- ITINERARIO -->
-  <div class="section olive">
+  <div class="section olive hero-bg">
     <div class="inner">
       <img class="asset itinerario-asset" src="assets/itinerario.png" alt="Itinerario">
     </div>
@@ -410,12 +497,15 @@
   </div>
 
   <!-- LO QUE NECESITAS SABER -->
-  <div class="section olive">
+  <div class="section olive hero-bg">
     <div class="inner">
-      <p class="script-title script-title--light">Lo que</p>
-      <p class="script-title">necesitas</p>
-      <p class="script-title script-title--light">saber…</p>
-      <p class="section-text">Queremos que disfruten este día tanto como nosotros. Aquí encontrarán algunos detalles importantes para que todo transcurra de la mejor manera.</p>
+      <div class="c21-wrapper">
+        <img class="asset c20-asset" src="assets/c-20.png" alt="Lo que necesitas saber">
+        <p class="section-text section-text--above">Queremos que disfruten este día tanto como nosotros. Aquí encontrarán algunos detalles importantes para que todo transcurra de la mejor manera.</p>
+        <div class="asset-mask">
+          <img class="asset asset-c21" src="assets/c-21.png" alt="Información adicional">
+        </div>
+      </div>
 
       <img class="flor-decorativa" src="assets/flor-decorativa.png" alt="">
 
