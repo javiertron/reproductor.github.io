@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Alex+Brush&display=swap" rel="stylesheet">
 <style>
   :root {
     --olive: #82836e;
@@ -175,15 +175,13 @@
   .preparate-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(32px, 5vw, 46px); }
   .preparate-sub { font-style: italic; font-weight: 600; font-size: 16px; margin-top: -4px; }
   .countdown-row {
-    display: flex; align-items: baseline; justify-content: center;
-    gap: 6px; margin-top: 22px; font-family: 'Cormorant Garamond', serif;
+    display: flex; align-items: center; justify-content: center;
+    gap: clamp(8px, 1.5vw, 12px); margin-top: 22px; font-family: 'Cormorant Garamond', serif;
   }
-  .countdown-row .num { font-size: clamp(30px, 5vw, 40px); font-weight: 500; min-width: 1.4em; text-align: center; }
-  .countdown-row .colon { font-size: clamp(24px, 4vw, 32px); opacity: 0.6; }
-  .countdown-labels {
-    display: flex; justify-content: center; gap: clamp(18px, 4vw, 34px); margin-top: 4px;
-  }
-  .countdown-labels span { font-size: 10px; letter-spacing: 0.12em; opacity: 0.7; width: 2.6em; text-align: center; }
+  .cd-unit { display: flex; flex-direction: column; align-items: center; min-width: 3.2em; }
+  .countdown-row .num { font-size: clamp(30px, 5vw, 40px); font-weight: 500; line-height: 1; text-align: center; }
+  .countdown-row .colon { font-size: clamp(24px, 4vw, 32px); opacity: 0.6; align-self: center; line-height: 1; display: inline-flex; align-items: center; }
+  .cd-unit .lbl { font-size: 10px; letter-spacing: 0.12em; opacity: 0.7; margin-top: 6px; white-space: nowrap; }
 
   /* ---- RSVP ---- */
   .rsvp-title {
@@ -277,7 +275,10 @@
   .info-list li:last-child { border-bottom: none; }
   .info-list li strong { font-weight: 700; }
 
-  .gracias-title { font-family: 'Parisienne', cursive; font-size: clamp(36px, 5vw, 48px); }
+  .gracias-title { font-family: 'Alex Brush', cursive; font-size: clamp(32px, 4vw, 44px); line-height: 1.05; margin: 0; }
+  .section.cream:last-of-type { padding: clamp(24px, 4vw, 40px) clamp(20px, 6vw, 36px); }
+  .section.cream:last-of-type .section-text { margin-top: 8px; max-width: 560px; }
+  .section.cream:last-of-type .section-text + .section-text { margin-top: 0; }
   /* Hero layout adjustments to match Canva (refined) */
   .section.olive:first-of-type {
     padding-top: 0;
@@ -317,10 +318,46 @@
   .hero-left, .hero-center, .hero-right { width: 100%; }
   .hero-center { display: flex; justify-content: center; align-items: center; }
   @media (min-width: 700px) {
-    .hero-flex { flex-direction: row; justify-content: center; align-items: center; gap: 60px; }
-    .hero-left { flex: 1 1 min(260px, 40%); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding-right:0; }
-    .hero-center { flex: 0 0 min(220px, 25vw); }
-    .hero-right { flex: 0 0 min(420px, 80vw); width: min(420px, 80vw); display:flex; flex-direction:column; align-items:center; justify-content:flex-end; position: relative; padding-bottom: clamp(130px, 16vw, 180px); }
+    .hero-flex {
+      display: grid;
+      grid-template-columns: minmax(260px, 40%) minmax(260px, 360px);
+      grid-template-rows: auto auto;
+      align-items: start;
+      justify-content: center;
+      gap: 60px;
+    }
+    .hero-left {
+      grid-column: 1 / 2;
+      grid-row: 1 / span 2;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:flex-start;
+      text-align:left;
+      padding-right:0;
+    }
+    .hero-center {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width: min(340px, 80vw);
+      justify-self: center;
+      margin-top: 1rem;
+    }
+    .hero-right {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      width: min(340px, 80vw);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-end;
+      position: relative;
+      padding-bottom: clamp(130px, 16vw, 180px);
+      justify-self: center;
+    }
   }
   .eyebrow { font-size: clamp(18px, 2.2vw, 26px); font-style: italic; line-height: 1.15; letter-spacing: 0.02em; margin-bottom: 6px; }
   .monograma { width: min(380px, 58vw); margin: 6px 0 0; }
@@ -453,13 +490,13 @@
     <div class="inner">
       <img class="asset preparete-asset" src="assets/c-19.png" alt="Prepárate">
       <div class="countdown-row">
-        <span class="num" id="cd-days">00</span><span class="colon">:</span>
-        <span class="num" id="cd-hours">00</span><span class="colon">:</span>
-        <span class="num" id="cd-min">00</span><span class="colon">:</span>
-        <span class="num" id="cd-sec">00</span>
-      </div>
-      <div class="countdown-labels">
-        <span>DÍAS</span><span>HORAS</span><span>MINUTOS</span><span>SEGUNDOS</span>
+        <div class="cd-unit"><span class="num" id="cd-days">00</span><span class="lbl">DÍAS</span></div>
+        <span class="colon">:</span>
+        <div class="cd-unit"><span class="num" id="cd-hours">00</span><span class="lbl">HORAS</span></div>
+        <span class="colon">:</span>
+        <div class="cd-unit"><span class="num" id="cd-min">00</span><span class="lbl">MINUTOS</span></div>
+        <span class="colon">:</span>
+        <div class="cd-unit"><span class="num" id="cd-sec">00</span><span class="lbl">SEGUNDOS</span></div>
       </div>
     </div>
   </div>
