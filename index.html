@@ -429,14 +429,16 @@
   .hero-caption .date strong { font-weight: 900; }
 
   @media (max-width: 699px) {
-    .section { padding: clamp(28px, 6vw, 40px) clamp(16px, 6vw, 24px); }
-    .hero-flex { gap: 20px; }
-    .hero-left { text-align: center; }
-    .hero-left .monograma { width: min(240px, 68vw); }
-    .hero-right { padding-bottom: 140px; position: relative; }
-    .hero-center { width: 100%; }
+    .section { padding: clamp(38px, 8vw, 56px) clamp(16px, 6vw, 24px); }
+    .hero-flex { gap: 20px; align-items: center; text-align: center; }
+    .hero-left, .hero-center, .hero-right { display: flex; justify-content: center; width: 100%; max-width: 380px; margin: 0 auto; }
+    .hero-left { flex-direction: column; text-align: center; padding-top: 0; }
+    .hero-left .monograma { width: min(240px, 68vw); margin: 0 auto; }
+    .hero-center { flex-direction: column; }
+    .hero-caption { width: min(280px, 90vw); margin: 0 auto; }
     .hero-caption .name { font-size: clamp(18px, 4vw, 22px); }
     .hero-caption .date { font-size: clamp(16px, 4vw, 20px); }
+    .hero-right { padding-bottom: 140px; position: relative; }
     .hero-photo { position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%); width: min(280px, 85vw); max-width: 320px; }
     .names-card { max-width: 100%; }
     .names-title { font-size: clamp(18px, 4vw, 24px); }
@@ -607,8 +609,8 @@
         <li><strong>Nuestra celebración será exclusivamente</strong> para adultos.</li>
         <li>Si algún invitado tiene una alergia o restricción alimentaria, <strong>agradecemos</strong> informarlo antes del 1 de agosto.</li>
         <li>La celebración finalizará a las 12:00 a. m.</li>
+        <li>Si tienen alguna duda, <strong>podrán comunicarse</strong> con nosotros al 3004523937. Estaremos felices de ayudarles.</li>
       </ul>
-      <p class="section-text section-text--small">Si tienen alguna duda, <strong>podrán comunicarse</strong> con nosotros al XXXX. Estaremos felices de ayudarles.</p>
     </div>
   </div>
 
