@@ -231,7 +231,7 @@
   .itinerario-asset { width: clamp(320px, 48vw, 600px); display: block; margin: 0 auto; }
   .dresscode-asset { width: min(100%, 520px); }
   /* Regalos: mantener proporción entre título y sobre, y reducir tamaño del título */
-  .regalos-title-asset { width: clamp(110px, 7.5vw, 160px); display: block; margin: 0 auto 10px; }
+  .regalos-title-asset { width: min(100%, 280px); max-width: 320px; display: block; margin: 0 auto 0; }
   .regalos-icon {
     width: clamp(150px, 20vw, 260px);
     max-width: 260px;
@@ -296,6 +296,13 @@
   .section.cream:last-of-type .section-text { margin: 0 auto 0; max-width: 560px; line-height: 1.45; }
   .section.cream:last-of-type .section-text + .section-text { margin-top: 0; }
   /* Hero layout adjustments to match Canva (refined) */
+  /* Apply beige background asset to all cream sections */
+  .section.cream {
+    background-image: url("assets/fondo-beige-24.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
   .section.olive:first-of-type {
     padding-top: clamp(40px, 6vw, 90px);
     padding-bottom: 0;
@@ -446,6 +453,7 @@
     .venue-copy { padding: 0 8px; }
     .preparate-asset, .itinerario-asset, .dresscode-asset { width: min(100%, 92vw); }
     .itinerario-asset { display: block; margin: 0 auto; }
+    .regalos-title-asset { width: min(100%, 280px); max-width: 320px; display: block; margin: 0 auto 0; }
     .regalos-title-asset { width: min(100%, 160px); display:block; margin: 0 auto 8px; }
     .regalos-icon { width: min(160px, 30vw); }
     .info-list { padding: 0 8px; }
