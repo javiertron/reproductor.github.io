@@ -87,8 +87,8 @@
     .hero-flex { flex-direction: row; justify-content: center; align-items: center; text-align: left; gap: 60px; }
     .hero-left { text-align: left; }
   }
-  .eyebrow { font-size: clamp(20px, 2.4vw, 28px); font-style: italic; line-height: 1.35; }
-  .monograma { width: min(220px, 55vw); margin: 10px 0 0; }
+  .eyebrow { font-size: clamp(20px, 2.4vw, 28px); font-style: italic; line-height: 1.35; margin-bottom: 10px; }
+  .monograma { width: min(220px, 55vw); margin: 0; }
   .hero-photo {
     width: min(340px, 80vw);
     aspect-ratio: 3/4;
@@ -96,7 +96,7 @@
     border-radius: 4px;
     display: block;
   }
-  .hero-caption { margin-top: 14px; }
+  .hero-caption { margin-top: 10px; }
   .hero-caption .name { font-size: clamp(16px, 1.4vw, 20px); }
   .hero-caption .date { font-weight: 600; font-size: clamp(16px, 1.4vw, 20px); margin-top: 2px; }
 
@@ -228,14 +228,14 @@
     opacity: 0.9;
   }
   .preparate-asset { width: min(100%, 360px); }
-  .itinerario-asset { width: min(100%, 600px); }
+  .itinerario-asset { width: clamp(320px, 48vw, 600px); display: block; margin: 0 auto; }
   .dresscode-asset { width: min(100%, 520px); }
-  /* Regalos title smaller, envelope larger and centered */
-  .regalos-title-asset { width: min(100%, 180px); }
+  /* Regalos: mantener proporción entre título y sobre, y reducir tamaño del título */
+  .regalos-title-asset { width: clamp(110px, 7.5vw, 160px); display: block; margin: 0 auto 10px; }
   .regalos-icon {
-    width: min(220px, 36vw);
-    max-width: 220px;
-    margin-top: 18px;
+    width: clamp(150px, 20vw, 260px);
+    max-width: 260px;
+    margin-top: 14px;
     opacity: 0.95;
     display: block;
     margin-left: auto;
@@ -291,9 +291,9 @@
   .info-list li strong { font-weight: 700; }
 
   .gracias-title { display: block; width: min(100%, 280px); max-width: 320px; margin: 0 auto 0; }
-  .section.cream:last-of-type { padding: clamp(24px, 4vw, 40px) clamp(20px, 5vw, 36px) clamp(72px, 14vw, 90px); }
-  .section.cream:last-of-type .inner { padding-bottom: clamp(40px, 8vw, 80px); }
-  .section.cream:last-of-type .section-text { margin: 8px auto 0; max-width: 560px; line-height: 1.45; }
+  .section.cream:last-of-type { padding: clamp(19px, 3.2vw, 32px) clamp(20px, 5vw, 36px) clamp(19px, 3.2vw, 32px); }
+  .section.cream:last-of-type .inner { padding-bottom: 0; }
+  .section.cream:last-of-type .section-text { margin: 0 auto 0; max-width: 560px; line-height: 1.45; }
   .section.cream:last-of-type .section-text + .section-text { margin-top: 0; }
   /* Hero layout adjustments to match Canva (refined) */
   .section.olive:first-of-type {
@@ -356,7 +356,7 @@
       padding-top: clamp(40px, 5vw, 70px);
       padding-right:0;
     }
-    .hero-left .monograma { width: min(320px, 28vw); margin-top: 8px; }
+    .hero-left .monograma { width: min(320px, 28vw); margin: 0; }
     .hero-right {
       grid-column: 2 / 3;
       grid-row: 1 / 2;
@@ -411,8 +411,8 @@
       padding-top: clamp(80px, 10vw, 120px);
     }
   }
-  .eyebrow { font-size: clamp(18px, 2.2vw, 26px); font-style: italic; line-height: 1.15; letter-spacing: 0.02em; margin-bottom: 6px; }
-  .monograma { width: min(380px, 58vw); margin: 6px 0 0; }
+  .eyebrow { font-size: clamp(18px, 2.2vw, 26px); font-style: italic; line-height: 1.15; letter-spacing: 0.02em; margin-bottom: 10px; }
+  .monograma { width: min(380px, 58vw); margin: 0; }
   .hero-photo {
     position: static;
     width: clamp(260px, 42vw, 420px);
@@ -436,7 +436,7 @@
     .hero-left { flex-direction: column; text-align: center; padding-top: 0; }
     .hero-left .monograma { width: min(240px, 68vw); margin: 0 auto; }
     .hero-center { flex-direction: column; }
-    .hero-caption { width: min(280px, 90vw); margin: 0 auto; }
+    .hero-caption { width: min(280px, 90vw); margin: 10px auto 0; }
     .hero-caption .name { font-size: clamp(18px, 4vw, 22px); }
     .hero-caption .date { font-size: clamp(16px, 4vw, 20px); }
     .hero-right { padding-bottom: 140px; position: relative; }
@@ -444,8 +444,10 @@
     .names-card { max-width: 100%; }
     .names-title { font-size: clamp(18px, 4vw, 24px); }
     .venue-copy { padding: 0 8px; }
-    .preparate-asset, .itinerario-asset, .dresscode-asset, .regalos-title-asset { width: 100%; }
-    .regalos-icon { width: min(120px, 24vw); }
+    .preparate-asset, .itinerario-asset, .dresscode-asset { width: min(100%, 92vw); }
+    .itinerario-asset { display: block; margin: 0 auto; }
+    .regalos-title-asset { width: min(100%, 160px); display:block; margin: 0 auto 8px; }
+    .regalos-icon { width: min(160px, 30vw); }
     .info-list { padding: 0 8px; }
     .section.olive.hero-bg .info-list { padding: 0 12px; }
     .flor-decorativa { width: 80px; }
